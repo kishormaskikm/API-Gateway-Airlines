@@ -5,7 +5,7 @@ const { Auth } = require("../utils/common")
 
 const userRepo = new UserRepository();
 
-async function signUp(data){
+async function create(data){
     try {
         const user = await userRepo.create(data);
         return user;
@@ -48,6 +48,6 @@ async function signin(data) {
 }
 
 module.exports = {
-    signUp,
+    create,
     signin
 }
