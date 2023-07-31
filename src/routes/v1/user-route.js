@@ -5,6 +5,7 @@ const { AuthRequestMiddlewares } = require("../../middlewares")
 const router = express.Router();
 
 router.post('/signUp', AuthRequestMiddlewares.validateAuthRequest, UserController.signUp);
-router.post('/signin' ,AuthRequestMiddlewares.validateAuthRequest, UserController.signin)
+router.post('/signin' ,AuthRequestMiddlewares.validateAuthRequest, UserController.signin);
+router.post('/role',AuthRequestMiddlewares.checkAuth, AuthRequestMiddlewares.isAdmin, UserController.addRoleToUser);
 
 module.exports = router;
